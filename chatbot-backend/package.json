@@ -1,0 +1,72 @@
+{
+  "name": "chatbot-backend",
+  "version": "1.0.0",
+  "description": "TypeScript-based Node.js application with MVC structure",
+  "homepage": "https://github.com/globaldesignindia/chatbot-backend#readme",
+  "bugs": {
+    "url": "https://github.com/globaldesignindia/chatbot-backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/globaldesignindia/chatbot-backend.git"
+  },
+  "license": "ISC",
+  "author": "Alok Kumar",
+  "main": "dist/index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=9.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "lint": "eslint src/ --ext .ts",
+    "lint:fix": "eslint src/ --ext .ts --fix",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "seed": "tsx src/database/seeders/seed.ts",
+    "seed:role": "tsx src/database/seeders/seed.ts RoleSeeder",
+    "seed:user": "tsx src/database/seeders/seed.ts UserSeeder"
+  },
+  "keywords": [
+    "typescript",
+    "nodejs",
+    "express",
+    "mongodb",
+    "mongoose",
+    "jwt",
+    "authentication",
+    "chatbot",
+    "api"
+  ],
+  "dependencies": {
+    "@th3hero/request-validator": "^1.1.6",
+    "compression": "^1.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3",
+    "pino": "^9.7.0",
+    "pino-http": "^10.5.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/compression": "^1.8.1",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "pino-pretty": "^13.0.0",
+    "tsx": "^4.6.0",
+    "typescript": "^5.3.0"
+  }
+}
