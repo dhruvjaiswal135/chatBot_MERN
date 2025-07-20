@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {routes} from '../../routes/api';
+import {routes} from '../../routes/api/index';
 
 import {baseController} from "../http/controllers/controller";
 import {config} from "../../config/app";

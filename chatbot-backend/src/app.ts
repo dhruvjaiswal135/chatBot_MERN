@@ -29,23 +29,17 @@ initializeDatabase().then(() => console.log('✅ MongoDB connected successfully'
 
 // Security middleware
 app.use(helmet());
-app.use(cors(
-  // {
-  // origin: function (origin, callback) {
-  //   const allowedOrigins = config.cors.origin; // e.g. ['http://localhost:8090', 'http://localhost:3000', 'http://localhost:3001']
-  //   if (!origin) {
-  //     // allow requests like curl or postman with no origin
-  //     return callback(null, true);
-  //   }
-  //   if (allowedOrigins.includes(origin)) {
-  //     return callback(null, origin);
-  //   } else {
-  //     return callback(new Error('Not allowed by CORS'));
-  //   }
-  // },
-  // credentials: true,
-// }
-));
+app.use(cors({
+  origin: function (origin, callback) {
+    const allowedOrigins = Array.isArray(config.cors.origin) ? config.cors.origin : [config.cors.origin];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
 
 
 // Rate limiting

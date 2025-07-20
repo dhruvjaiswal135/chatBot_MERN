@@ -31,6 +31,4 @@ if (ENV === 'production' && cluster.isPrimary) {
 } else {
     console.log(`🧑‍💻 Worker process ${process.pid} started`);
     startServer();
-    console.log(`🔧 Registered routes:`, app._router.stack);
-
 }

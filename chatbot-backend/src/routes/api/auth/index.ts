@@ -12,10 +12,4 @@ router.route('/logout').post(authCheck, auth.logout);
 router.route('/me').get(authCheck, auth.me);
 router.route('/refresh').post(authRefresh, auth.refreshToken);
 
-    router.stack.forEach(function(r: any){
-    if (r.route && r.route.path){
-        console.log(r.route.path)
-    }
-}   );
-
 export {router as auth};
